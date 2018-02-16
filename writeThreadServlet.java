@@ -19,14 +19,14 @@ public class createThreadServlet extends HttpServlet{
 		//作成者、スレッドタイトル、カテゴリーを取得
 		String name = req.getParameter("name");
 		String title = req.getParameter("title");
-		String category = req.getParameter("category");
+		int category = req.getParameter("category");
 		
 		//空文字チェック
 		
 		//ログファイルに書き込めるように整形
-		comment = comment.replaceAll("\n","<br>");
-		comment = comment.replaceAll("\r","");
-		comment = comment.replaceAll("\t","");
+		title = title.replaceAll("\n","<br>");
+		title = title.replaceAll("\r","");
+		title = title.replaceAll("\t","");
 		name = name.replaceAll("\t","");
 		
 		//日時の取得
@@ -40,8 +40,5 @@ public class createThreadServlet extends HttpServlet{
 		wt.writeFile("thread.txt",title,category);
 		
 		res.setContentType("text/html;charset=Windows-31J");
-		
-		RequestDispatcher dispatcher = req.getRequestDsipatcher("");
-		dispatcher.forward(req,res);
 	}
 }
