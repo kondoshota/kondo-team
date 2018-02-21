@@ -31,9 +31,7 @@ public class CalendarServlet extends HttpServlet{
 		
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0.1//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">");
-		
-		sb.append("<html lang=\"ja\">");
+		sb.append("<html>");
 		sb.append("<head>");
 		sb.append("<meta http-equiv=\"Content-Type\" Content=\"text/html;charset=UTF-8\">");
 		
@@ -43,7 +41,7 @@ public class CalendarServlet extends HttpServlet{
 		sb.append("table{border:1px solid #a9a9a9;width:90%;padding:0px;margin:0px;border-collapse:collapse;}");
 		sb.append("td{width:12%;border-top:1px solid #a9a9a9;border-left:1px solid #a9a9a9;vertical-align:top;margin:0px;padding:2px;}");
 		sb.append("td.month{background-color:#f5f5f5;text-align:right;font-size:0.75em;}");
-		sb.append("td.sche{background-color:#fffffff;text-align:left;height:80px;}");
+		sb.append("td.sche{background-color:#fffffff;text-align:left;height:50px;}");
 		sb.append("img{border:0px;}");
 		sb.append("p{font-size:0.75em;}");
 		sb.append("</style>");
@@ -55,14 +53,11 @@ public class CalendarServlet extends HttpServlet{
 		
 		sb.append("<table>");
 		
-		sb.append("<tr><td class=\"month\">1月</td><td class=\"month\">2月</td><td class=\"month\">3月</td><td class=\"month\">4月</td></tr>");
-		sb.append(createScheduleStr());
+		sb.append("<tr><td class=\"month\">1月(スレッド数)</td><td class=\"month\">2月(スレッド数)</td><td class=\"month\">3月(スレッド数)</td><td class=\"month\">4月(スレッド数)</td></tr>");
 		
-		sb.append("<tr><td class=\"month\">5月</td><td class=\"month\">6月</td><td class=\"month\">7月</td><td class=\"month\">8月</td></tr>");
-		sb.append(createScheduleStr());
+		sb.append("<tr><td class=\"month\">5月(スレッド数)</td><td class=\"month\">6月(スレッド数)</td><td class=\"month\">7月(スレッド数)</td><td class=\"month\">8月(スレッド数)</td></tr>");
 		
-		sb.append("<tr><td class=\"month\">9月</td><td class=\"month\">10月</td><td class=\"month\">11月</td><td class=\"month\">12月</td></tr>");
-		sb.append(createScheduleStr());
+		sb.append("<tr><td class=\"month\">9月(スレッド数)</td><td class=\"month\">10月(スレッド数)</td><td class=\"month\">11月(スレッド数)</td><td class=\"month\">12月(スレッド数)</td></tr>");
 		
 		sb.append("</table>");
 		
@@ -70,19 +65,6 @@ public class CalendarServlet extends HttpServlet{
 		sb.append("</html>");
 		
 		out.println(new String(sb));
-	}
-	
-	protected String createScheduleStr(){
-		StringBuffer sb = new StringBuffer();
-		
-		sb.append("<tr>");
-		for (int i = 0 ; i < 4 ; i++){
-			sb.append("<td class=\"sche\"><img src=\"./img/memo.png\" width=\"14\" height=\"16\"></td>");
-		}
-		sb.append("</tr>");
-		
-		return (new String(sb));
-		
 	}
 	
 	protected String createYearLink(int year){
