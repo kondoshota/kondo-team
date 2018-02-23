@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class createThreadServlet extends HttpServlet{
+public class writeThreadServlet extends HttpServlet{
 	
 	final String LOGFILE ="/WEB-INF/thread.txt";
 	
@@ -16,20 +16,20 @@ public class createThreadServlet extends HttpServlet{
 	throws ServletException, IOException{
 		req.setCharacterEncoding("Windows-31J");
 		
-		//ì¬ÒAƒXƒŒƒbƒhƒ^ƒCƒgƒ‹AƒJƒeƒSƒŠ[‚ğæ“¾
+		//ä½œæˆè€…ã€ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã€ã‚«ãƒ†ã‚´ãƒªãƒ¼ã‚’å–å¾—
 		String name = req.getParameter("name");
 		String title = req.getParameter("title");
 		int category = req.getParameter("category");
 		
-		//‹ó•¶šƒ`ƒFƒbƒN
+		//ç©ºæ–‡å­—ãƒã‚§ãƒƒã‚¯
 		
-		//ƒƒOƒtƒ@ƒCƒ‹‚É‘‚«‚ß‚é‚æ‚¤‚É®Œ`
+		//ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚ã‚‹ã‚ˆã†ã«æ•´å½¢
 		title = title.replaceAll("\n","<br>");
 		title = title.replaceAll("\r","");
 		title = title.replaceAll("\t","");
 		name = name.replaceAll("\t","");
 		
-		//“ú‚Ìæ“¾
+		//æ—¥æ™‚ã®å–å¾—
 		Calendar cal=Calendar.getInstance();
 		Date date=cal.getTime();
 		SimpleDateFormat parser=new SimpleDateFormat("yyyy-MM-dd"+" ("+"E"+") "+"HH:mm:ss");
