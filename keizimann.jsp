@@ -1,8 +1,12 @@
 <%@ page import="java.util.Calendar,
 	java.util.Date,
 	java.text.SimpleDateFormat"
-pageEncoding="Windows-31J"
-contentType="text/html;charset=Windows-31J" %>
+	pageEncoding="Windows-31J"
+	contentType="text/html;charset=Windows-31J" 
+	%>
+
+
+			 
 
 <html>
 <head>
@@ -10,10 +14,17 @@ contentType="text/html;charset=Windows-31J" %>
 
 
 	
-<%	Calendar cal=Calendar.getInstance();
-	Date date=cal.getTime();
-	SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd H:m:s");
-	String today=formatter.format(date);    %>
+ 			<%
+			 	int index=1;
+			 	String nomber=request.getParameter("no");
+			 	String cal=request.getParameter("dateStr");
+			 	String note=request.getParameter("note");
+			 	String name=request.getParameter("name");
+			 	String title=request.getParameter("title");
+			 	int count=9;
+			 %>
+			
+			 
 </head>  
 
 
@@ -54,7 +65,7 @@ contentType="text/html;charset=Windows-31J" %>
 				clear: both;
 				line-height: 1.8;">
 				
-			<a href="keizimann2.jsp"style="background: #e26343;border: 1px solid #e26343;
+			<a href="BBSFrontServlet"style="background: #e26343;border: 1px solid #e26343;
 				color: #fff;
 				cursor: pointer;
 				text-decoration: none;
@@ -62,10 +73,11 @@ contentType="text/html;charset=Windows-31J" %>
 			 	font-size: 16px;
 				padding: 8px 16px;
 			 	font-weight: 600;
-			  " target="_blank">新規のスレッド作成</a></div>
+			  " target="_blank">新規のスレッド作成</a>
+			 </div>
 			  
 			  
-				<form>
+			<form>
 				<h1>カテゴリー</h1>
 			    <p align=center>
 			    	ニュース : <input type="checkbox" name="kategorie" value="news">  <br>
@@ -73,7 +85,7 @@ contentType="text/html;charset=Windows-31J" %>
 			    	人身事故 : <input type="checkbox" name="kategorie" value="sad">
 			    </p>
 			    <button type="submit">探しに行こう</button>
-</form>
+			</form>
 
 		
 			
@@ -89,9 +101,24 @@ contentType="text/html;charset=Windows-31J" %>
 					<td width=100><p align=center>名前</p></td>
 					<td width=320><p align=center>見出し</p></td>
 					<td width=100><p align=center>登録月日</p></td>
-					<td width=100><p align=center>見られた回数</p></td>
-					</tr>
-				</table>
+				</tr>
+					
+				<tr>
+					<%
+					
+					out.println("<table cellspacing=1 width=600 border=1>");
+					out.println("<tr><td width=50><p align=center>"+nomber+"</p></td>");
+					out.println("<td width=100><p align=center>"+name+"</p></td>");
+					out.println("<td width=320><p align=center>"+note+"</p></td>");
+					out.println("<td width=320><p align=center>"+cal+"</p></td>");
+					
+					out.println("</table>");
+					
+					
+					
+					%>
+				</tr>
+			</table>
 				
 		</section>
 		
