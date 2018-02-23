@@ -1,23 +1,23 @@
 import java.sql.*;
 
-class JavaDataAccess01 {
+class DBAccessor {
 	public static void main (String args[]) throws SQLException, ClassNotFoundException {
-		//Oracle JDBC Driver‚Ìƒ[ƒh
+		//Oracle JDBC Driverã®ãƒ­ãƒ¼ãƒ‰
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		// Oracle‚Éinfoƒ†[ƒU[‚ÅÚ‘±
+		// Oracleã«infoãƒ¦ãƒ¼ã‚¶ãƒ¼ã§æ¥ç¶š
 		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info", "pro");
-		// ƒXƒe[ƒgƒƒ“ƒgi“®ìw¦‚·‚é‚à‚Ìj‚ğì¬
+		// ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆï¼ˆå‹•ä½œæŒ‡ç¤ºã™ã‚‹ã‚‚ã®ï¼‰ã‚’ä½œæˆ
 		Statement stmt = conn.createStatement();
 
-		//–â‡‚¹‚ğÀs
-		ResultSet rset = stmt.executeQuery(""); //‚±‚±‚Éselect•¶
-		//–â‡‚¹Œ‹‰Ê‚ğ•\¦
+		//å•åˆã›ã‚’å®Ÿè¡Œ
+		ResultSet rset = stmt.executeQuery(""); //ã“ã“ã«selectæ–‡
+		//å•åˆã›çµæœã‚’è¡¨ç¤º
 		while ( rset.next() ) {
-			// —ñ”Ô†‚Åw’è
+			// åˆ—ç•ªå·ã§æŒ‡å®š
 			System.out.println(rset.getInt(1) + "\t" + rset.getString(2));
 		}
 
-		//ƒNƒ[ƒY
+		//ã‚¯ãƒ­ãƒ¼ã‚º
 		rset.close();
 		stmt.close();
 		conn.close();
