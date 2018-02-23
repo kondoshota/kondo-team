@@ -4,9 +4,9 @@ class DBAccessor {
 	public static void main (String args[]) throws SQLException, ClassNotFoundException {
 		//Oracle JDBC Driverのロード
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		// Oracleにinfoユーザーで接続
+		//Oracleにinfoユーザーで接続
 		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info", "pro");
-		// ステートメント（動作指示するもの）を作成
+		//ステートメント（動作指示するもの）を作成
 		Statement stmt = conn.createStatement();
 
 		//問合せを実行
