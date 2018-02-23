@@ -1,25 +1,11 @@
-import java.util.List;
-
-class readResList extends Executer {
+class Executer {
 	
-	public List query(ServletRequest req) throws Exception{
-		
-		//formから取ったスレID
-		String th_id = req.getThid();
-		String keyword = "";
-		if(req.getKeyword()!=null){
-			keyword = req.getKeyword();
+	DBAccessor dba = null;
+	
+	public Executer(){
+		try{
+			dba = new DBAccessor();
+		}catch(Exception e){
+			e.printStackTrace();
 		}
-		int page = Integer.parseInt(req.getPage());
-		int first = (page-1)*10+1;
-		int last = (page)*10;
-		
-		String sql = "SELECT * FROM (SELECT th_id,th_title,th_fdate,th_ldate,count,th_maker,r1,rownum r2 FROM (SELECT th_id,th_title,th_fdate,th_ldate,count,th_maker,rownum r1 FROM thread LEFT JOIN (select con_th_id,count(*) count from content where con_state=1 group by con_th_id) ON (th_id=con_th_id) "+keyword+" ORDER BY th_ldate DESC)) WHERE r2 BETWEEN "+first+" AND "+last;
-		System.out.println(sql);
-		
-		List tlist = dba.getResList(sql);
-		
-		return tlist;
-		
 	}
-}
