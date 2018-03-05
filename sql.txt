@@ -17,9 +17,9 @@ CREATE TABLE Res(
 );
 
 CREATE TABLE rv_User(
-	user_id		NUMBER(4)	CONSTRAINT user_id_primary RIMARY KEY, 
-	user_name	VARCHAR2(50)	NOT NULL,
-	user_pass	VARCHAR2(50)	NOT NULL,
-	user_fdate	DATE,
-	user_ldate	DATE
+	user_id	 	NUMBER(4) 	CONSTRAINT user_id_primary PRIMARY KEY, 
+	user_name 	VARCHAR2(50) 	NOT NULL,
+	user_pass 	VARCHAR2(50) 	NOT NULL,
+	user_fdate 	DATE,
+	user_ldate 	DATE
 );
