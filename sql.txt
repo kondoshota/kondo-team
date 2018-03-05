@@ -1,22 +1,22 @@
 CREATE TABLE Thread(
 	th_id 		NUMBER(4) 	CONSTRAINT th_id_primary PRIMARY KEY,
-	th_title	VARCHAR2(100),	
-	th_fdate	DATE,
-	th_ldate	DATE,
-	th_maker	VARCHAR2(50)
+	th_title 	VARCHAR2(100),	
+	th_fdate 	DATE,
+	th_ldate 	DATE,
+	th_maker 	VARCHAR2(50)
 );
 
 CREATE TABLE Res(
-	res_th_id	NUMBER(4)	CONSTRAINT res_th_id_foreign REFERENCES Thread(th_id)
-	res_id		NUMBER(4)	CONSTRAINT res_id_primary PRIMARY KEY,	
-	res_user_name	VARCHAR2(50),
-	res_response	VARCHAR2(1000),
-	res_date	DATE,
-	res_file	VARCHAR2(1000),
-	res_state	NUMBER(1)
+	res_th_id 	NUMBER(4) 	CONSTRAINT res_th_id_foreign REFERENCES Thread(th_id),
+	res_id	 	NUMBER(4) 	CONSTRAINT res_id_primary PRIMARY KEY,	
+	res_user_name 	VARCHAR2(50),
+	res_response 	VARCHAR2(1000),
+	res_date 	DATE,
+	res_file 	VARCHAR2(1000),
+	res_state 	NUMBER(1)
 );
 
-CREATE TABLE User(
+CREATE TABLE rv_User(
 	user_id		NUMBER(4)	CONSTRAINT user_id_primary RIMARY KEY, 
 	user_name	VARCHAR2(50)	NOT NULL,
 	user_pass	VARCHAR2(50)	NOT NULL,
