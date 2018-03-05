@@ -1,0 +1,25 @@
+CREATE TABLE Thread(
+	th_id 		NUMBER(4) 	CONSTRAINT th_id_primary PRIMARY KEY,
+	th_title	,	
+	th_fdate	DATE,
+	th_ldate	DATE,
+	th_maker	VARCHAR2(50)
+);
+
+CREATE TABLE Content(
+	con_th_id	NUMBER(4)	CONSTRAINT con_th_id_foreign REFERENCES Thread(th_id)
+	con_id		NUMBER(4)	CONSTRAINT con_id_primary PRIMARY KEY,	
+	con_user_name	VARCHAR2(50),
+	con_content	VARCHAR2(1000),
+	con_date	DAtE,
+	con_file	VARCHAR2(1000),
+	con_state	NUMBER(1)
+);
+
+CREATE TABLE rv_User(
+	user_id		NUMBER(4)	CONSTRAINT user_id_primary RIMARY KEY, 
+	user_name	VARCHAR2(50)	NOT NULL,
+	user_pass	VARCHAR2(50)	NOT NULL,
+	user_fdate	DATE,
+	user_ldate	DATE
+);
