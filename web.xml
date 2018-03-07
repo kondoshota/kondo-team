@@ -1,0 +1,53 @@
+<web-app>
+	
+	<servlet>
+		<servlet-name>keizimann</servlet-name>
+		<jsp-file>/keizimann.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>keizimann</servlet-name>
+		<url-pattern>/keizimann</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>keizimann2</servlet-name>
+		<jsp-file>/keizimann2.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>keizimann2</servlet-name>
+		<url-pattern>/keizimann2</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>logincheck</servlet-name>
+		<servlet-class>LoginCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>logincheck</servlet-name>
+		<url-pattern>/LoginCheck</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>registercheck</servlet-name>
+		<servlet-class>RegisterCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>registercheck</servlet-name>
+		<url-pattern>/RegisterCheck</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>threadcheck</servlet-name>
+		<servlet-class>ThreadCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>threadcheck</servlet-name>
+		<url-pattern>/ThreadCheck</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

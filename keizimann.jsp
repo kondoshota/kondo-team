@@ -1,64 +1,109 @@
 <%@ page import="java.util.Calendar,
+	java.io.*,
+	javax.servlet.*,
+	javax.servlet.http.*,
 	java.util.Date,
 	java.text.SimpleDateFormat"
 	pageEncoding="Windows-31J"
 	contentType="text/html;charset=Windows-31J" 
-	%>
-
-
-			 
+%>
 
 <html>
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "KeizimannCSS.css">
-
-
 	
- 			<%
-			 	int index=1;
-			 	String nomber=request.getParameter("no");
-			 	String cal=request.getParameter("dateStr");
-			 	String note=request.getParameter("note");
-			 	String name=request.getParameter("name");
-			 	String title=request.getParameter("title");
-			 	int count=9;
-			 %>
-			
-			 
-</head>  
-
-
+	<%
+		int index=1;
+		String nomber=request.getParameter("no");
+		String cal=request.getParameter("dateStr");
+		String note=request.getParameter("note");
+		String name=request.getParameter("name");
+		String title=request.getParameter("title");
+		int count=9;
+	%>
+</head>
 <body>
 	<div id="wrap">
-	
-		<header><h1 align=center>コンド掲示板</h1></header>
-	
+		<header>
+			<h1 align=center>コンド掲示板</h1>
+		</header>
+<form method="GET" action="/keiziban/ThreadCheck">
+	<table width=700 border=1 cellspacing=0 cellpadding=5>
+	<tr><td><b>スレッドタイトル：</b></td><td><input type="text" size=50  maxlength=50 name="title">
+	<input type=submit value="register" colspan="2" align="right"></td></tr>
+	</table>
+</form>
+<!-- ログインor登録 -->
+	<nav>
 		
-		<nav>
-									<!-- ログイン -->
-			<form id="login">
-				<fieldset style=width:290;>
+		<% if(session.getAttribute("status") == null){ %>
+		<form method="POST" action="/keiziban/LoginCheck">
+			<fieldset style=width:290;>
 				<legend>login</legend>
-				<table>	
-				<tr>
+				<% if(session.getAttribute("login") == "Not Auth"){ %>
+					<p>ログインに失敗しました</p>
+					<p>再度ユーザー名とパスワードを</br>入力して下さい</p>
+				<% } %>
+				<table>
+					<tr>
 						<td><label for="id">ID</label></td>
-						<td><input type="text" id="id"></td>
+						<td><input type="text" name="user"></td>
 					</tr>
 					<tr>
 						<td><label for="id">PASSWORD</label></td>
-						<td><input type="password" id="pwd"></td>
+						<td><input type="password" name="pass"></td>
 					</tr>
-						<tr>
-					<td colspan="2" align="right">
-						<input type="submit" value="login">
+					<tr>
+						<td colspan="2" align="right">
+							<input type="submit" value="login">
 						</td>
 					</tr>
 				</table>
-				</fieldset>
-			</form>
-			
-			
-															<!-- 新規スレッド作成のボタン -->
+			</fieldset>
+		</form>
+		<form method="POST" action="/keiziban/RegisterCheck">
+			<fieldset style=width:290;>
+				<legend>New Account</legend>
+				<% if(session.getAttribute("register") == "Not Auth"){ %>
+					<p>登録に失敗しました</p>
+					<p>再度ユーザー名とパスワードを<br>入力して下さい</p>
+				<% } %>
+				<table>	
+					<tr>
+						<td><label for="id">ID</label></td>
+						<td><input type="text" name="user"></td>
+					</tr>
+					<tr>
+						<td><label for="id">PASSWORD</label></td>
+						<td><input type="password" name="pass"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<input type="submit" value="register">
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+		<% }else{ %>
+		<form method="GET" action="Logout">
+			<fieldset style=width:290;>
+				<legend>Wellcome</legend>
+				<table>
+					<tr>
+						<td><h3>ようこそ「${sessionScope.status}」さん</h3></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<input type="submit" value="logout">
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+		<% } %>
+	</div>
+<!-- 新規スレッド作成のボタン -->
 			<div style="margin: 0 auto;
 				padding: 0; 
 				max-width: 760px;
