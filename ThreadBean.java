@@ -4,7 +4,7 @@ public class ThreadBean {
 	private int id;
 	private String title;
 	private String fdate;
-	private String ldate
+	private String ldate;
 	private String maker;
 	
 	public void setId(int id){
