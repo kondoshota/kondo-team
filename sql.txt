@@ -18,8 +18,20 @@ CREATE TABLE Res(
 
 CREATE TABLE rv_User(
 	user_id	 	NUMBER(4) 	CONSTRAINT user_id_primary PRIMARY KEY, 
-	user_name 	VARCHAR2(50) 	NOT NULL,
+	user_name 	VARCHAR2(50) 	CONSTRAINT user_name_unique UNIQUE NOT NULL,
 	user_pass 	VARCHAR2(50) 	NOT NULL,
 	user_fdate 	DATE,
 	user_ldate 	DATE
 );
+
+CREATE sequence user_seq
+increment by 1
+start with 1
+nomaxvalue
+;
+
+CREATE sequence th_seq
+increment by 1
+start with 1
+nomaxvalue;
+
