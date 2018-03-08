@@ -1,0 +1,93 @@
+<web-app>
+	
+	<servlet>
+		<servlet-name>keizimann</servlet-name>
+		<jsp-file>/keizimann.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>keizimann</servlet-name>
+		<url-pattern>/keizimann</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>thread</servlet-name>
+		<jsp-file>/thread.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>thread</servlet-name>
+		<url-pattern>/thread</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>logincheck</servlet-name>
+		<servlet-class>LoginCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>logincheck</servlet-name>
+		<url-pattern>/LoginCheck</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>registercheck</servlet-name>
+		<servlet-class>RegisterCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>registercheck</servlet-name>
+		<url-pattern>/RegisterCheck</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>threadcheck</servlet-name>
+		<servlet-class>ThreadCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>threadcheck</servlet-name>
+		<url-pattern>/ThreadCheck</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>responsecheck</servlet-name>
+		<servlet-class>ResponseCheck</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>responsecheck</servlet-name>
+		<url-pattern>/ResponseCheck</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>Logout</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>threadlist</servlet-name>
+		<servlet-class>ThreadList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>threadlist</servlet-name>
+		<url-pattern>/ThreadList</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>responselist</servlet-name>
+		<servlet-class>ResponseList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>responselist</servlet-name>
+		<url-pattern>/ResponseList</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
